@@ -17,7 +17,9 @@ making this smaller sacrifices quality, however can make the performance much mo
 
 On first startup, BlockScreen will automatically download and unzip the Minecraft textures and average their colours for use later. This can take a while as the download is around ~400mb.
 
-Once in-game, take in the amazing graphics! You can also use some commands:
+Once in-game, take in the amazing graphics! BlockScreen will copy your screen into Minecraft! (if everything is black, there's likely an [issue](https://github.com/emortaldev/BlockScreen/issues/new))
+
+You can also use some commands:
 
 | Command Usage | Description |
 -|:-
