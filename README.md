@@ -1,5 +1,7 @@
 # BlockScreen 🖥️
 
+<img src="https://github.com/emortaldev/BlockScreen/blob/main/examples/scaletypedefault.png" width="700">
+
 ## Usage
 
 Note: This can only be used locally, servers generally don't have capturable screens
@@ -24,7 +26,7 @@ You can also use some commands:
 | Command Usage | Description |
 -|:-
 | /dither | Toggles [dithering](https://en.wikipedia.org/wiki/Floyd%E2%80%93Steinberg_dithering) |
-| /scaletype <scaletype> | Sets the scale type, there are only really 2 distinct types which are smooth and default
+| /scaletype <scaletype> | Sets the [scale type](https://github.com/emortaldev/BlockScreen/tree/main/examples), there are only really 2 distinct types which are smooth and default
 
 ## Compile
 First, clone this repository
