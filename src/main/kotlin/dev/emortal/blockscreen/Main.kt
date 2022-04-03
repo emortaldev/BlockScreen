@@ -42,34 +42,6 @@ object Main {
 }
 
 fun main() {
-    logger.info("Starting!")
-
-    if (!Files.exists(Path.of("./blocktextures"))) downloadAssets()
-
-    logger.info("Populating colors map...")
-
-    val blockColors = mutableMapOf<Color, Block>()
-
-    val blackList = listOf(Block.SPAWNER, Block.BEACON)
-
-    val blockValues = Block.values()
-    blockValues.forEach { it ->
-        if (!it.isSolid) return@forEach
-        // wow shulker boxes lag, do not re-enable this if you want to keep your computer!
-        if (it.name().endsWith("shulker_box") || it.name().endsWith("glass") || it.name().endsWith("leaves") || blackList.contains(it)) return@forEach
-
-        val shape = it.registry().collisionShape()
-        if (shape.relativeStart() != Vec.ZERO || shape.relativeEnd() != Vec.ONE) return@forEach
-
-        val file = File("./blocktextures/${it.namespace().path()}.png")
-        if (file.exists()) {
-            // Find averages of all textures, then dev.emortal.blockscreen.add them to the colour map
-            val avg = averageColor(ImageIO.read(file))
-            blockColors[avg] = it
-        }
-    }
-    logger.info("\rFinished populating colors map!")
-
     logger.info("Starting server...")
 
     val minecraftServer = MinecraftServer.init()
