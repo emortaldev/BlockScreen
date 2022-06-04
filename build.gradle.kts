@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.6.10"
+    kotlin("jvm") version "1.6.21"
     application
 }
 
@@ -15,8 +15,8 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.Minestom:Minestom:27b046b52c")
-    implementation("com.github.emortaldev:KStom:08da0d2c49")
+    implementation("com.github.Minestom:Minestom:58b6e90142")
+    implementation("com.github.emortaldev:KStom:a680a2b096")
 }
 
 tasks.withType<KotlinCompile> {

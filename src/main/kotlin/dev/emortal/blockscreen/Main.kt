@@ -34,7 +34,7 @@ import kotlin.io.path.deleteIfExists
 private const val assetsURL = "https://github.com/InventivetalentDev/minecraft-assets/zipball/refs/heads/1.18.2"
 private const val assetsFilePath = "./mctextures.zip"
 
-val logger = LoggerFactory.getLogger("BlockScreenshare")
+val logger = LoggerFactory.getLogger("BlockScreen")
 
 object Main {
     var scaleType: Int = Image.SCALE_DEFAULT
@@ -108,7 +108,9 @@ fun main() {
         .build()
     Manager.dimensionType.addDimension(dimension)
     val instance = instanceManager.createInstanceContainer(dimension)
-    instance.chunkGenerator = Generator()
+    instance.setGenerator {
+        it.modifier().fillHeight(0, 1, Block.IRON_BLOCK)
+    }
 
     global.listenOnly<PlayerLoginEvent> {
         setSpawningInstance(instance)
@@ -123,7 +125,7 @@ fun main() {
 
         object : MinestomRunnable(repeat = Duration.ofMillis(50)) {
             override fun run() {
-                // Create capture of screen, then dev.emortal.blockscreen.resize it to the block X,Y, then dither if enabled
+                // Create capture of screen, then resize it to the block X,Y, then dither if enabled
                 val img = robot.createScreenCapture(rectangle)
                     .resize(customSizeX, customSizeY, scaleType)
                     .also { if (dither) it.floydSteinbergDithering(blockColors) }
